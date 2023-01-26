@@ -1,2 +1,3 @@
-# Daily-Planner
-Manage your time effectively with the Daily Planner application. 
+# Student-Planner
+
+Manage your time effectively with the Daily Planner application.
