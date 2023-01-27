@@ -25,8 +25,8 @@ body {
   }
   
   .hour {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #000000bb;
+    color: #ffffff;
     border-top: 1px dashed #000000;
   }
   
