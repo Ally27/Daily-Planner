@@ -4,6 +4,26 @@ $(function () {
   $("#currentDay").html(todaysDate);
 });
 
+//time blocking
+$(".time-block").each(function () {
+  var parent = $(this).attr("id");
+  var setHour = parseInt(parent.slice(5));
+  var currentDay = dayjs().format("YYYY-MM-DD " + setHour);
+  var currentHour = dayjs(currentDay);
+  var today = dayjs().format("YYYY-MM-DD H");
+  var pastTime = currentHour.diff(today, "hour");
+  if (pastTime === 0) {
+    $(this).addClass("present");
+  }
+  if (pastTime > 0) {
+    $(this).addClass("future");
+  }
+  if (pastTime < 0) {
+    $(this).addClass("past");
+  }
+  //Color changes based on time
+});
+
 //local storage
 $("btn").on("click", function () {
   var inputValue = $(this).siblings(".description").val();
@@ -20,3 +40,15 @@ $("#14 .description").val(localStorage.getItem("14"));
 $("#15 .description").val(localStorage.getItem("15"));
 $("#16 .description").val(localStorage.getItem("16"));
 $("#17 .description").val(localStorage.getItem("17"));
+
+function colorChange() {
+  var currentHour = moment().hours();
+  if (currentId < currentHour) {
+    $(this).addClass("past");
+  } else if (currentId > currentHour) {
+    $(this).addClass("future");
+  } else {
+    $(this).addClass("present");
+  }
+}
+colorChange();
